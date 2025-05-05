@@ -16,7 +16,7 @@ https://next.i18n.nuxtjs.org/docs/getting-started/usage
 
 <template>
 
-    <div class="p-4">
+    <div>
         <div class="text-blue-500"> Switch Language </div>
         <select v-model="language">
             <option

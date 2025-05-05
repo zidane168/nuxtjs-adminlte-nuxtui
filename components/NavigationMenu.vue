@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const items = ref<NavigationMenuItem[][]>([
-  [
+const { t } = useI18n(); 
+
+//const items = ref<NavigationMenuItem[][]>([
+const items = computed<NavigationMenuItem[][]>(() => [
+  [ 
     {
-      label: 'Links',
-      type: 'label'
-    },
-    {
-      label: 'Guide',
+      label: t("menu.home"),
       icon: 'i-lucide-book-open',
       children: [
         {
-          label: 'Introduction',
+          label: t("menu.home"),
           description: 'Fully styled and customizable components for Nuxt.',
           icon: 'i-lucide-house'
         },
@@ -107,21 +106,7 @@ const items = ref<NavigationMenuItem[][]>([
         }
       ]
     }
-  ],
-  [
-    {
-      label: 'GitHub',
-      icon: 'i-simple-icons-github',
-      badge: '3.8k',
-      to: 'https://github.com/nuxt/ui',
-      target: '_blank'
-    },
-    {
-      label: 'Help',
-      icon: 'i-lucide-circle-help',
-      disabled: true
-    }
-  ]
+  ], 
 ])
 </script>
 
