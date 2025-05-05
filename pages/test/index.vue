@@ -6,7 +6,7 @@
     function showToast() {
         console.log('show toast')
         toast.add({
-            title: 'abcccc', //'{{ $t("description") }}',
+            title: $t("description"), 
             icon: 'i-lucide-wifi',
         })
         console.log('show toast 2')
