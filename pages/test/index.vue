@@ -2,11 +2,12 @@
 <script setup lang="ts">
   
     const toast = useToast()
+    const { t } = useI18n();
 
     function showToast() {
         console.log('show toast')
         toast.add({
-            title: $t("description"), 
+            title: t("description"), 
             icon: 'i-lucide-wifi',
         })
         console.log('show toast 2')
