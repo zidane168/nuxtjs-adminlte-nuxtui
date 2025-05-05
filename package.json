@@ -17,11 +17,22 @@
     "@nuxt/image": "^1.10.0",
     "@nuxt/scripts": "^0.11.6",
     "@nuxt/ui": "^3.1.1",
+    "@nuxtjs/i18n": "^9.5.4",
+    "@pinia/nuxt": "^0.11.0",
+    "@tailwindcss/vite": "^4.1.4",
     "@unhead/vue": "^2.0.8",
+    "date-fns": "^4.1.0",
     "eslint": "^9.26.0",
     "nuxt": "^3.17.1",
+    "pinia": "^3.0.2",
     "typescript": "^5.8.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4"
   }
 }
