@@ -1,6 +1,13 @@
 {
     "menu": {
-        "home": "Home"
+        "home": "Home",
+        "customer": "Customer", 
+        "setting": "Setting"
+    },
+
+    "home": {
+        "dashboard": "Dashboards",
+        "topup": "Topup"
     },
 
     "home_page": "This is Home page",

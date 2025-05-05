@@ -9,6 +9,7 @@ const items = computed<NavigationMenuItem[][]>(() => [  // updated
     {
       label: t("menu.home"),
       icon: 'i-lucide-book-open',
+      permission: 'home',
       children: [
         {
           label: t("menu.home"),
@@ -45,7 +46,7 @@ const items = computed<NavigationMenuItem[][]>(() => [  // updated
       ]
     },
     {
-      label: 'Composables',
+      label: 'Customers',
       icon: 'i-lucide-database',
       children: [
         {
@@ -72,7 +73,7 @@ const items = computed<NavigationMenuItem[][]>(() => [  // updated
       label: 'Components',
       icon: 'i-lucide-box',
       to: '/components',
-      active: true,
+      active: true, // highligh here
       defaultOpen: true,
       children: [
         {
