@@ -3,8 +3,8 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const { t } = useI18n(); 
 
-//const items = ref<NavigationMenuItem[][]>([
-const items = computed<NavigationMenuItem[][]>(() => [
+//const items = ref<NavigationMenuItem[][]>([   // dont update,
+const items = computed<NavigationMenuItem[][]>(() => [  // updated
   [ 
     {
       label: t("menu.home"),
@@ -13,7 +13,14 @@ const items = computed<NavigationMenuItem[][]>(() => [
         {
           label: t("menu.home"),
           description: 'Fully styled and customizable components for Nuxt.',
-          icon: 'i-lucide-house'
+          icon: 'i-lucide-house',
+          // children: [
+          //   {
+          //     label: t("menu.home"),
+          //             description: 'Fully styled and customizable components for Nuxt.',
+          //             icon: 'i-lucide-house',
+          //   }
+          // ]
         },
         {
           label: 'Installation',
