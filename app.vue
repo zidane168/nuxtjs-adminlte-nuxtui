@@ -1,6 +1,10 @@
 <template>
-  <UApp>
+  <UApp> <!-- UApp for NextUI showToast -->
     <LangSwitcher /> 
+
+
+    <NavigationMenu />
+   
     <NuxtPage />
   </UApp>
 </template> 
