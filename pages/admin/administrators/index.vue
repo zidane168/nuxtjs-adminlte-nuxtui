@@ -2,6 +2,20 @@
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import type { TableColumn } from '@nuxt/ui'
 
+
+import { useAdministratorStore } from '~/stores/administrator'; 
+const administratorStore = useAdministratorStore() 
+await administratorStore.fetchPagination();
+
+// onMounted(async() => {
+//   await administratorStore.fetchPagination();   // fetch the first page of administrator on mount
+// })
+
+const administrators = computed(() => administratorStore.administrators)
+const total = computed(() => administratorStore.total)
+const pageSize = computed(() => administratorStore.pageSize)
+const currentPage = computed(() => administratorStore.currentPage) 
+
 const table = useTemplateRef('table')
 
 type Payment = {
@@ -176,25 +190,34 @@ const pagination = ref({
 </script>
 
 <template>
-  <div class="w-full pb-4 space-y-4">
+
+  <div class="mb-[10px] pb-4  border w-[300px]">
+    abc 
+  </div>
+
+  <div class="p-2 pb-4 space-y-4 ">
+    <!-- :columns="columns" 
+       :pagination-options="{
+        getPaginationRowModel: getPaginationRowModel()
+      }"
+    -->
     <UTable
       ref="table"
       v-model:pagination="pagination"
-      :data="data"
-      :columns="columns"
-      :pagination-options="{
-        getPaginationRowModel: getPaginationRowModel()
-      }"
-      class="flex-1"
+      :data="administrators"  
+      
     />
 
-    <div class="flex justify-center pt-4 border-t border-default">
+    <div class="flex justify-center pt-4 "> 
+
       <UPagination
-        :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
-        :items-per-page="table?.tableApi?.getState().pagination.pageSize"
-        :total="table?.tableApi?.getFilteredRowModel().rows.length"
-        @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+        :default-page="currentPage"
+        :items-per-page="pageSize"
+        :total="total"
+        @update:page="(pg) => administratorStore.fetchPagination(pg)"
+        
       />
     </div>
   </div>
 </template>
+ 
