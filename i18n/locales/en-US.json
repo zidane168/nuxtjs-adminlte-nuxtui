@@ -6,9 +6,21 @@
     },
 
     "home": {
-        "dashboard": "Dashboards",
-        "topup": "Topup"
+        "dashboards": "Dashboards",
+        "topups": "Topups"
     },
+
+    "customer": {
+        "customers": "Customers", 
+        "jobs": "Jobs"
+    },
+
+    "setting": {
+        "administrators": "Administrators", 
+        "roles": "Roles",
+        "permissions": "Permissions"
+    },
+ 
 
     "home_page": "This is Home page",
     "welcome": "Welcome to NuxtJS nuxt/ui :  ^3.1.0 ,  Nuxt 3.16.2",

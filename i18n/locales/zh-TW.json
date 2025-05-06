@@ -1,6 +1,24 @@
-{
+{ 
     "menu": {
-        "home": "主頁版"
+        "home":  "主頁版",
+        "customer": "客人服務", 
+        "setting": "設定區"
+    },
+
+    "home": {
+        "dashboards": "Dashboards",
+        "topups": "充值"
+    },
+
+    "customer": {
+        "customers": "客户管理", 
+        "jobs": "管理工作"
+    },
+
+    "setting": {
+        "administrators": "管理員一覽", 
+        "roles": "角色一覽",
+        "permissions": "權限一覽"
     },
     "home_page": "這是主頁！！！",
     "welcome": "歡迎來到 NuxtJS nuxt/ui : 3.1.0,  Nuxt 3.16.2",

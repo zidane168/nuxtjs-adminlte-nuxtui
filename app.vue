@@ -4,8 +4,14 @@
       <div class="font-bold">
         CRM and Logo Here
       </div>
-      <div class="">
-        <LangSwitcher />   
+      <div class="flex gap-2">
+        <div>
+          <LangSwitcher />   
+        </div>
+        <div> | </div>
+        <div>
+          Welcome Vi Ly!
+        </div>
       </div>
     </div>
 
