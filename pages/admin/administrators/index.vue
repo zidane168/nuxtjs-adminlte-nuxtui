@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { getPaginationRowModel } from '@tanstack/vue-table'
 import type { TableColumn } from '@nuxt/ui'
+import { upperFirst } from 'scule'
 
-
-import { useAdministratorStore } from '~/stores/administrator';  
-import { watch } from 'vue';
+import { useAdministratorStore } from '~/stores/administrator';   
 
 const UButton = resolveComponent('UButton') 
 const UDropdownMenu = resolveComponent('UDropdownMenu')
@@ -164,6 +163,42 @@ const pagination = ref({
         getPaginationRowModel: getPaginationRowModel()
       }"
     -->
+
+    <div class="flex items-center gap-2 px-4 py-3.5 overflow-x-auto">
+      <UInput
+        :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+        class="max-w-sm min-w-[12ch]"
+        placeholder="Filter emails..."
+        @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)" 
+      />
+      <!-- call api here -->
+  
+      <UDropdownMenu
+        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+          label: upperFirst(column.id),
+          type: 'checkbox' as const,
+          checked: column.getIsVisible(),
+          onUpdateChecked(checked: boolean) {
+            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+          },
+          onSelect(e?: Event) {
+            e?.preventDefault()
+          }
+        }))"
+        :content="{ align: 'end' }"
+      >
+        <UButton
+          label="Columns"
+          color="neutral"
+          variant="outline"
+          trailing-icon="i-lucide-chevron-down"
+          class="ml-auto"
+          aria-label="Columns select dropdown"
+        />
+      </UDropdownMenu>
+    </div>
+
+
     <UTable
       :columns="columns"
       ref="table"
