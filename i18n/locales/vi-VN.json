@@ -15,6 +15,16 @@
         "jobs": "Quản lý jobs"
     },
 
+    "administrator": {
+        "firstName": "Tên", 
+        "lastName": "Họ",
+        "ip": "Địa chỉ IP",
+        "maidenName": "maiden Name",
+        "birthDate": "Ngày sinh nhật",
+        "age": "Tuổi",
+        "email": "Email"
+    },
+
     "setting": {
         "administrators": "Quản lý admin", 
         "roles": "Quản lý role",

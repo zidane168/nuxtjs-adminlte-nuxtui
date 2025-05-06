@@ -14,6 +14,16 @@
         "customers": "客户管理", 
         "jobs": "管理工作"
     },
+    
+    "administrator": {
+        "firstName": "名稱", 
+        "lastName": "姓名",
+        "ip": "IP地址",
+        "maidenName": "maiden Name",
+        "birthDate": "生日日期",
+        "age": "歲數",
+        "email": "電郵地址"
+    }, 
 
     "setting": {
         "administrators": "管理員一覽", 

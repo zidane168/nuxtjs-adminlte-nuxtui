@@ -20,6 +20,16 @@
         "roles": "Roles",
         "permissions": "Permissions"
     },
+
+    "administrator": {
+        "firstName": "First name", 
+        "lastName": "Last name",
+        "ip": "IP",
+        "maidenName": "maiden Name",
+        "birthDate": "BirthDate",
+        "age": "Age",
+        "email": "Email"
+    },
  
 
     "home_page": "This is Home page",
