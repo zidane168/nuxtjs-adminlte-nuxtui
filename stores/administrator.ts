@@ -1,8 +1,19 @@
 import { defineStore } from 'pinia'
 
+import type { Administrator  } from '~/ultis/types/Administrator'; 
+
+export interface AdministratorStoreState {
+    administrators: Administrator[];
+    currentAdministrator: Administrator | null;
+    total: number;
+    pageSize: number;
+    currentPage: number;
+  }
+
 export const useAdministratorStore = defineStore('administratorStore', {
-    state: () => ({
+    state: (): AdministratorStoreState => ({
         administrators: [],
+        currentAdministrator:null,
         total: 0,
         pageSize: 10,
         currentPage: 1, 
@@ -30,7 +41,29 @@ export const useAdministratorStore = defineStore('administratorStore', {
                 this.currentPage = page  
 
             } catch (err) {
-                alert(err.getMessages())
+                // alert(err)
+            }
+        },
+
+        async getAdminById(id: number) { 
+            try { 
+
+                console.log ( '---------')
+                console.log(id)
+                console.log ( '---------')
+                const response = await fetch('https://dummyjson.com/users/' + id)
+               
+                if (response.status != 200) {
+                    alert(response.status)
+                    return;
+                }
+                    
+                const data = await response.json()
+                this.currentAdministrator = data  
+                console.log(this.currentAdministrator)
+
+            } catch (err) {
+                // alert(err)
             }
         }
     }
