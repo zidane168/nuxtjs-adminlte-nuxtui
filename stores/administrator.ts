@@ -64,6 +64,19 @@ export const useAdministratorStore = defineStore('administratorStore', {
             } catch (err) {
                 // alert(err)
             }
+        },
+
+        async updateAdmin(id: number, body: Administrator) { 
+            const response = await fetch('https://dummyjson.com/users/2', {
+                method: 'PUT', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(    body   )
+            })
+            
+            if (response.status == 200) {
+                return true
+            }
+            return false
         }
     }
 })
