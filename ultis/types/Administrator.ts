@@ -9,6 +9,6 @@ export type Administrator = {
     phone: number,
     ip: string, 
     role: string,
-    birthDate: Date,
+    birthDate: string,
     image: string, 
   }

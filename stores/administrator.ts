@@ -46,8 +46,7 @@ export const useAdministratorStore = defineStore('administratorStore', {
         },
 
         async getAdminById(id: number) { 
-            try { 
-
+            try {  
                 console.log ( '---------')
                 console.log(id)
                 console.log ( '---------')

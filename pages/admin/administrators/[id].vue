@@ -1,28 +1,27 @@
 <template> 
-    <div> Here is route.param.id content Event id: {{ $route.params.id }} </div>    
+    <div> Here is route.param.id content Event id: {{ $route.params.id }} </div>     
+    <hr />
 
     <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
-        <UFormField label="FirstName" name="firstName">
+        <UFormField :label='t("administrator.firstName")' name="firstName">  <!-- label: "firstName" :label='t("administrator.firstName")'-->
             <UInput v-model="currentAdmin.firstName"    class="w-full"/>
         </UFormField>
 
-        <UFormField label="lastName" name="lastName">
+        <UFormField :label="t('administrator.lastName')" name="lastName">
             <UInput v-model="currentAdmin.lastName" class="w-full" />
         </UFormField> 
 
-        <UFormField label="Email" name="email">
+        <UFormField :label="t('administrator.email')" name="email">
             <UInput v-model="currentAdmin.email"  class="w-full" />
         </UFormField> 
 
-        <UFormField label="Age" name="age">
+        <UFormField :label="t('administrator.age')" name="age">
             <UInput v-model="currentAdmin.age"  class="w-full" />
         </UFormField> 
-
-        <!--
-        <UFormField label="birthDate" name="birthDate">
-            <UCalendar v-model="currentAdmin.birthDate"  class="w-[300px]" />
-        </UFormField>  
-       -->
+ 
+        <UFormField :label="t('administrator.birthDate')" name="birthDate">
+            <UCalendar v-model="currentAdmin.birthDate"  class="w-[300px]" @change="onDateChange" />
+        </UFormField>   
 
         <UButton type="submit">
             Submit
@@ -34,12 +33,17 @@
 <script setup lang="ts">
 import { useAdministratorStore } from '~/stores/administrator'; 
 import type { FormError, FormSubmitEvent } from '@nuxt/ui'
+ 
+const { t } = useI18n(); 
 
 const route = useRoute();
 const administratorStore = useAdministratorStore();
 await administratorStore.getAdminById( route.params.id );
 
 const currentAdmin = computed(() => administratorStore.currentAdministrator); 
+
+console.log( ' ---------> ')
+console.log (currentAdmin.birthDate)
 
 const state = reactive({
   email: undefined,
@@ -65,5 +69,10 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
   console.log(event.data)
 }
 
+const onDateChange = (date: Date) => { 
+    console.log (' ===== ')
+    console.log (currentAdmin.birthDate)
+    currentAdmin.birthDate = date;
+} 
 
 </script>
